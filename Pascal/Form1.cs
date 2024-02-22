@@ -18,7 +18,7 @@ namespace Pascal
                     b.Width = m;
                     b.Height = m;
                     b.Top = sor * m;
-                    b.Left = oszlop * m + Width /2;
+                    b.Left = oszlop * m + Width /3;
                     int x = Faktoriális(sor) / (Faktoriális(oszlop) * Faktoriális(sor-oszlop));
                     b.Text = x.ToString();
                     Controls.Add(b);
