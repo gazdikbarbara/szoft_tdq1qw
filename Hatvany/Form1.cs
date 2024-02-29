@@ -11,7 +11,7 @@ namespace Hatvany
         {
             Szamok sz = new Szamok();
             sz.szám = 1;
-            sz.hatvány = 
+            sz.hatvány = 2 ^ sz.szám;
             List<Szamok> listám = new List<Szamok>();
 
 
