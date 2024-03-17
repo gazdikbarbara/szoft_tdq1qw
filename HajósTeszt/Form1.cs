@@ -51,9 +51,24 @@ namespace HajósTeszt
             VálaszGomb2.Text = kérdés.Válasz2;
             VálaszGomb3.Text = kérdés.Válasz3;
 
-            if (kérdés.HelyesVálasz == 1) VálaszGomb1.helyesVálasz = true;
-            if (kérdés.HelyesVálasz == 2) VálaszGomb2.helyesVálasz = true;
-            if (kérdés.HelyesVálasz == 3) VálaszGomb3.helyesVálasz = true;
+            if (kérdés.HelyesVálasz == 1)
+            {
+                VálaszGomb1.helyesVálasz = true;
+                VálaszGomb2.helyesVálasz = false;
+                VálaszGomb3.helyesVálasz = false;
+            }
+            if (kérdés.HelyesVálasz == 2)
+            {
+                VálaszGomb2.helyesVálasz = true;
+                VálaszGomb1.helyesVálasz = false;
+                VálaszGomb3.helyesVálasz = false;
+            }
+            if (kérdés.HelyesVálasz == 3)
+            {
+                VálaszGomb3.helyesVálasz = true;
+                VálaszGomb1.helyesVálasz = false;
+                VálaszGomb2.helyesVálasz = false;
+            }
             
 
             if (string.IsNullOrEmpty(kérdés.URL))
@@ -121,6 +136,10 @@ namespace HajósTeszt
                 AktuálisKérdés = 0;
                 Kérdésmegjelenítés(AktuálisKérdések[AktuálisKérdés]);
             }
+
+            VálaszGomb1.BackColor = SystemColors.ButtonFace;
+            VálaszGomb2.BackColor = SystemColors.ButtonFace;
+            VálaszGomb3.BackColor = SystemColors.ButtonFace;
             
         }
 

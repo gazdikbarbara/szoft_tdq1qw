@@ -24,14 +24,15 @@ namespace HajósTeszt
         {
             BackColor = Color.Red;
             Színezd();
-            
+
         }
 
         void Színezd()
         {
             if (helyesVálasz == true) BackColor = Color.Green;
+            
         }
-        
+
 
     }
 }
