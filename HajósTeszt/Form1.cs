@@ -35,13 +35,14 @@ namespace HajósTeszt
             AktuálisKérdések = new List<Kérdés>();
             for (int i = 0; i < 7; i++)
             {
-                AktuálisKérdések.Add(ÖsszesKérdés[i]);
-                ÖsszesKérdés.RemoveAt(i);
+                AktuálisKérdések.Add(ÖsszesKérdés[0]);
+                ÖsszesKérdés.RemoveAt(0);
             }
 
             dataGridView1.DataSource = AktuálisKérdések;
             Kérdésmegjelenítés(AktuálisKérdések[AktuálisKérdés]);
 
+            
         }
 
         void Kérdésmegjelenítés(Kérdés kérdés)
@@ -53,21 +54,21 @@ namespace HajósTeszt
 
             if (kérdés.HelyesVálasz == 1)
             {
-                VálaszGomb1.helyesVálasz = true;
-                VálaszGomb2.helyesVálasz = false;
-                VálaszGomb3.helyesVálasz = false;
+                VálaszGomb1.HelyesVálasz = true;
+                VálaszGomb2.HelyesVálasz = false;
+                VálaszGomb3.HelyesVálasz = false;
             }
             if (kérdés.HelyesVálasz == 2)
             {
-                VálaszGomb2.helyesVálasz = true;
-                VálaszGomb1.helyesVálasz = false;
-                VálaszGomb3.helyesVálasz = false;
+                VálaszGomb2.HelyesVálasz = true;
+                VálaszGomb1.HelyesVálasz = false;
+                VálaszGomb3.HelyesVálasz = false;
             }
             if (kérdés.HelyesVálasz == 3)
             {
-                VálaszGomb3.helyesVálasz = true;
-                VálaszGomb1.helyesVálasz = false;
-                VálaszGomb2.helyesVálasz = false;
+                VálaszGomb3.HelyesVálasz = true;
+                VálaszGomb1.HelyesVálasz = false;
+                VálaszGomb2.HelyesVálasz = false;
             }
             
 
@@ -140,9 +141,36 @@ namespace HajósTeszt
             VálaszGomb1.BackColor = SystemColors.ButtonFace;
             VálaszGomb2.BackColor = SystemColors.ButtonFace;
             VálaszGomb3.BackColor = SystemColors.ButtonFace;
+
+            TalálatSzámNövelő(AktuálisKérdés);
+            KérdésCserélő();
             
         }
 
+        void TalálatSzámNövelő(int válaszSzám)
+        {
+            if (VálaszGomb1.Telitalálat == true)
+            {
+                AktuálisKérdések[válaszSzám].HelyesVálaszokSzáma++;
+            }
+            
+        }
+
+        void KérdésCserélő()
+        {
+            for (int i = 0; i < AktuálisKérdések.Count; i++)
+            {
+                if (AktuálisKérdések[i].HelyesVálaszokSzáma == 3)
+                {
+                    AktuálisKérdések.RemoveAt(i);
+                }
+            }
+
+            if (AktuálisKérdések.Count != 7)
+            {
+                AktuálisKérdések.Add(ÖsszesKérdés[0]);
+            }
+        }
 
 
     }
