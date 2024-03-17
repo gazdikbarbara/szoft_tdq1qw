@@ -40,34 +40,38 @@
             // 
             dataGridView1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 288);
+            dataGridView1.Location = new Point(14, 384);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(776, 150);
+            dataGridView1.Size = new Size(887, 200);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(34, 32);
+            label1.Location = new Point(14, 9);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(50, 20);
             label1.TabIndex = 1;
             label1.Text = "label1";
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(438, 32);
+            pictureBox1.Location = new Point(501, 43);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(335, 231);
+            pictureBox1.Size = new Size(383, 308);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            button1.Location = new Point(338, 259);
+            button1.Location = new Point(386, 345);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(86, 31);
             button1.TabIndex = 3;
             button1.Text = "Következő";
             button1.UseVisualStyleBackColor = true;
@@ -75,13 +79,14 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;

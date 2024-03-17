@@ -9,7 +9,7 @@ namespace HajósTeszt
         VálaszGomb VálaszGomb2;
         VálaszGomb VálaszGomb3;
 
-        int AktuálisKérdés = 5;
+        int AktuálisKérdés = 0;
 
         public Form1()
         {
@@ -19,22 +19,24 @@ namespace HajósTeszt
             Controls.Add(VálaszGomb1);
 
             VálaszGomb2 = new VálaszGomb();
-            VálaszGomb2.Top = 150;
+            VálaszGomb2.Top = 160;
             Controls.Add(VálaszGomb2);
 
             VálaszGomb3 = new VálaszGomb();
-            VálaszGomb3.Top = 250;
+            VálaszGomb3.Top = 270;
             Controls.Add(VálaszGomb3);
         }
+
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ÖsszesKérdés = KérdésBetöltés();
-            List<Kérdés> AktuálisKérdések = new List<Kérdés>();
+            AktuálisKérdések = new List<Kérdés>();
             for (int i = 0; i < 7; i++)
             {
-                AktuálisKérdések.Add(ÖsszesKérdés[0]);
-                ÖsszesKérdés.RemoveAt(0);
+                AktuálisKérdések.Add(ÖsszesKérdés[i]);
+                ÖsszesKérdés.RemoveAt(i);
             }
 
             dataGridView1.DataSource = AktuálisKérdések;
@@ -48,6 +50,11 @@ namespace HajósTeszt
             VálaszGomb1.Text = kérdés.Válasz1;
             VálaszGomb2.Text = kérdés.Válasz2;
             VálaszGomb3.Text = kérdés.Válasz3;
+
+            if (kérdés.HelyesVálasz == 1) VálaszGomb1.helyesVálasz = true;
+            if (kérdés.HelyesVálasz == 2) VálaszGomb2.helyesVálasz = true;
+            if (kérdés.HelyesVálasz == 3) VálaszGomb3.helyesVálasz = true;
+            
 
             if (string.IsNullOrEmpty(kérdés.URL))
             {
@@ -99,24 +106,25 @@ namespace HajósTeszt
                 MessageBox.Show(ex.Message);
             }
 
-
-
-
-
-
-
-
             return kérdések;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MouseClick += Form1_MouseClick;
+            AktuálisKérdés++;
+            if (AktuálisKérdés != 7)
+            {
+                Kérdésmegjelenítés(AktuálisKérdések[AktuálisKérdés]);
+            }
+            else
+            {
+                AktuálisKérdés = 0;
+                Kérdésmegjelenítés(AktuálisKérdések[AktuálisKérdés]);
+            }
+            
         }
 
-        private void Form1_MouseClick(object? sender, MouseEventArgs e)
-        {
-            ;
-        }
+
+
     }
 }
