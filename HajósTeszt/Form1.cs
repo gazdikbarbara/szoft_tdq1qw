@@ -52,6 +52,7 @@ namespace HajósTeszt
             VálaszGomb2.Text = kérdés.Válasz2;
             VálaszGomb3.Text = kérdés.Válasz3;
             IgazHamis(kérdés);
+            
 
             if (string.IsNullOrEmpty(kérdés.URL))
             {
@@ -131,9 +132,16 @@ namespace HajósTeszt
 
         private void button1_Click(object sender, EventArgs e)
         {
+            VálaszGomb1.BackColor = Color.Gray;
+            VálaszGomb2.BackColor = Color.Gray;
+            VálaszGomb3.BackColor = Color.Gray;
+
+            TalálatSzámNövelő(AktuálisKérdés, AktuálisKérdések[AktuálisKérdés]);
+            
             AktuálisKérdés++;
             if (AktuálisKérdés != 7)
             {
+                KérdésCserélő();
                 Kérdésmegjelenítés(AktuálisKérdések[AktuálisKérdés]);
             }
             else
@@ -142,67 +150,66 @@ namespace HajósTeszt
                 Kérdésmegjelenítés(AktuálisKérdések[AktuálisKérdés]);
             }
 
-            VálaszGomb1.BackColor = SystemColors.ButtonFace;
-            VálaszGomb2.BackColor = SystemColors.ButtonFace;
-            VálaszGomb3.BackColor = SystemColors.ButtonFace;
-
-            VálaszGomb1.Enabled = true;
-            VálaszGomb2.Enabled = true;
-            VálaszGomb3.Enabled = true;
-
-            //TalálatSzámNövelő(AktuálisKérdés);
-            //KérdésCserélő();
             
         }
 
-        //void TalálatSzámNövelő(int válaszSzám)
-        //{
-        //    if (VálaszGomb1.Telitalálat == true)
-        //    {
-        //        AktuálisKérdések[válaszSzám].HelyesVálaszokSzáma++;
-        //    }
-            
-        //}
-
-        //void KérdésCserélő()
-        //{
-        //    for (int i = 0; i < AktuálisKérdések.Count; i++)
-        //    {
-        //        if (AktuálisKérdések[i].HelyesVálaszokSzáma == 3)
-        //        {
-        //            AktuálisKérdések.RemoveAt(i);
-        //        }
-        //    }
-
-        //    if (AktuálisKérdések.Count != 7)
-        //    {
-        //        AktuálisKérdések.Add(ÖsszesKérdés[0]);
-        //    }
-        //}
-
-        public void GombBeállító()
+        void TalálatSzámNövelő(int válaszSzám, Kérdés k)
         {
-            if (VálaszGomb1.HelyesVálasz == true)
+            if (VálaszGomb1.Telitalálat == true && k.HelyesVálasz == 1)
             {
-                VálaszGomb2.Enabled = false;
-                VálaszGomb2.BackColor = Color.Red;
-                VálaszGomb3.Enabled = false;
-                VálaszGomb3.BackColor = Color.Red;
+                AktuálisKérdések[válaszSzám].HelyesVálaszokSzáma++;
             }
-            if (VálaszGomb2.HelyesVálasz == true)
+            if (VálaszGomb2.Telitalálat == true && k.HelyesVálasz == 2)
             {
-                VálaszGomb1.Enabled = false;
-                VálaszGomb1.BackColor = Color.Red;
-                VálaszGomb3.Enabled= false;
-                VálaszGomb3.BackColor= Color.Red;
+                AktuálisKérdések[válaszSzám].HelyesVálaszokSzáma++;
             }
-            if (VálaszGomb3.HelyesVálasz == true)
+            if (VálaszGomb3.Telitalálat == true && k.HelyesVálasz == 3)
             {
-                VálaszGomb1.Enabled = false;
-                VálaszGomb1.BackColor= Color.Red;
-                VálaszGomb2.Enabled= false;
-                VálaszGomb2.BackColor= Color.Red;
+                AktuálisKérdések[válaszSzám].HelyesVálaszokSzáma++;
+            }
+
+        }
+
+        void KérdésCserélő()
+        {
+            for (int i = 0; i < AktuálisKérdések.Count; i++)
+            {
+                if (AktuálisKérdések[i].HelyesVálaszokSzáma == 3)
+                {
+                    AktuálisKérdések.RemoveAt(i);
+                }
+            }
+
+            if (AktuálisKérdések.Count != 7)
+            {
+                AktuálisKérdések.Add(ÖsszesKérdés[0]);
+                ÖsszesKérdés.RemoveAt(0);
             }
         }
+
+        //public void GombBeállító()
+        //{
+        //    if (VálaszGomb1.HelyesVálasz == true)
+        //    {
+        //        VálaszGomb2.Enabled = false;
+        //        VálaszGomb2.BackColor = Color.Red;
+        //        VálaszGomb3.Enabled = false;
+        //        VálaszGomb3.BackColor = Color.Red;
+        //    }
+        //    if (VálaszGomb2.HelyesVálasz == true)
+        //    {
+        //        VálaszGomb1.Enabled = false;
+        //        VálaszGomb1.BackColor = Color.Red;
+        //        VálaszGomb3.Enabled= false;
+        //        VálaszGomb3.BackColor= Color.Red;
+        //    }
+        //    if (VálaszGomb3.HelyesVálasz == true)
+        //    {
+        //        VálaszGomb1.Enabled = false;
+        //        VálaszGomb1.BackColor= Color.Red;
+        //        VálaszGomb2.Enabled= false;
+        //        VálaszGomb2.BackColor= Color.Red;
+        //    }
+        //}
     }
 }
