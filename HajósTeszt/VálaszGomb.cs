@@ -9,8 +9,9 @@ namespace HajósTeszt
     internal class VálaszGomb: TextBox
     {
         public bool HelyesVálasz = false;
-        public int Talált = 0;
-        public bool Telitalálat = false;
+        //public int Talált = 0;
+        //public bool Telitalálat = false;
+        Form1 f = new Form1();
         public VálaszGomb()
         {
             ReadOnly = true;
@@ -24,30 +25,32 @@ namespace HajósTeszt
 
         private void VálaszGomb_MouseClick(object? sender, MouseEventArgs e)
         {
-            BackColor = Color.Red;
-            Színezd();
-            Találat();
+            //BackColor = Color.Red;
+            f.GombBeállító();
+            //Színezd();
+            //Találat();
 
         }
 
-        void Színezd()
-        {
-            if (HelyesVálasz == true)
-            { 
-                BackColor = Color.Green;
-                Talált = 1;
-            }
+        //void Színezd()
+        //{
+        //    if (HelyesVálasz == true)
+        //    { 
+        //        BackColor = Color.Green;
+        //        Talált = 1;
+        //    }
             
-        }
+            
+        //}
 
-        void Találat()
-        {
-            if (Talált == 1)
-            {
-                Talált = 0;
-                Telitalálat = true;
-            }
-        }
+        //void Találat()
+        //{
+        //    if (Talált == 1)
+        //    {
+        //        Talált = 0;
+        //        Telitalálat = true;
+        //    }
+        //}
 
     }
 }

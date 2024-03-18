@@ -51,7 +51,21 @@ namespace HajósTeszt
             VálaszGomb1.Text = kérdés.Válasz1;
             VálaszGomb2.Text = kérdés.Válasz2;
             VálaszGomb3.Text = kérdés.Válasz3;
+            IgazHamis(kérdés);
 
+            if (string.IsNullOrEmpty(kérdés.URL))
+            {
+                pictureBox1.Visible = false;
+            }
+            else
+            {
+                pictureBox1.Visible = true;
+                pictureBox1.Load("https://storage.altinum.hu/hajo/" + kérdés.URL);
+            }
+        }
+
+        private void IgazHamis(Kérdés kérdés)
+        {
             if (kérdés.HelyesVálasz == 1)
             {
                 VálaszGomb1.HelyesVálasz = true;
@@ -69,17 +83,6 @@ namespace HajósTeszt
                 VálaszGomb3.HelyesVálasz = true;
                 VálaszGomb1.HelyesVálasz = false;
                 VálaszGomb2.HelyesVálasz = false;
-            }
-            
-
-            if (string.IsNullOrEmpty(kérdés.URL))
-            {
-                pictureBox1.Visible = false;
-            }
-            else
-            {
-                pictureBox1.Visible = true;
-                pictureBox1.Load("https://storage.altinum.hu/hajo/" + kérdés.URL);
             }
         }
 
@@ -110,6 +113,7 @@ namespace HajósTeszt
                     int.TryParse(tömb[6], out x);
 
                     k.HelyesVálasz = x;
+                    k.HelyesVálaszokSzáma = 0;
 
                     kérdések.Add(k);
                 }
@@ -142,36 +146,63 @@ namespace HajósTeszt
             VálaszGomb2.BackColor = SystemColors.ButtonFace;
             VálaszGomb3.BackColor = SystemColors.ButtonFace;
 
-            TalálatSzámNövelő(AktuálisKérdés);
-            KérdésCserélő();
+            VálaszGomb1.Enabled = true;
+            VálaszGomb2.Enabled = true;
+            VálaszGomb3.Enabled = true;
+
+            //TalálatSzámNövelő(AktuálisKérdés);
+            //KérdésCserélő();
             
         }
 
-        void TalálatSzámNövelő(int válaszSzám)
-        {
-            if (VálaszGomb1.Telitalálat == true)
-            {
-                AktuálisKérdések[válaszSzám].HelyesVálaszokSzáma++;
-            }
+        //void TalálatSzámNövelő(int válaszSzám)
+        //{
+        //    if (VálaszGomb1.Telitalálat == true)
+        //    {
+        //        AktuálisKérdések[válaszSzám].HelyesVálaszokSzáma++;
+        //    }
             
-        }
+        //}
 
-        void KérdésCserélő()
+        //void KérdésCserélő()
+        //{
+        //    for (int i = 0; i < AktuálisKérdések.Count; i++)
+        //    {
+        //        if (AktuálisKérdések[i].HelyesVálaszokSzáma == 3)
+        //        {
+        //            AktuálisKérdések.RemoveAt(i);
+        //        }
+        //    }
+
+        //    if (AktuálisKérdések.Count != 7)
+        //    {
+        //        AktuálisKérdések.Add(ÖsszesKérdés[0]);
+        //    }
+        //}
+
+        public void GombBeállító()
         {
-            for (int i = 0; i < AktuálisKérdések.Count; i++)
+            if (VálaszGomb1.HelyesVálasz == true)
             {
-                if (AktuálisKérdések[i].HelyesVálaszokSzáma == 3)
-                {
-                    AktuálisKérdések.RemoveAt(i);
-                }
+                VálaszGomb2.Enabled = false;
+                VálaszGomb2.BackColor = Color.Red;
+                VálaszGomb3.Enabled = false;
+                VálaszGomb3.BackColor = Color.Red;
             }
-
-            if (AktuálisKérdések.Count != 7)
+            if (VálaszGomb2.HelyesVálasz == true)
             {
-                AktuálisKérdések.Add(ÖsszesKérdés[0]);
+                VálaszGomb1.Enabled = false;
+                VálaszGomb1.BackColor = Color.Red;
+                VálaszGomb3.Enabled= false;
+                VálaszGomb3.BackColor= Color.Red;
+            }
+            if (VálaszGomb3.HelyesVálasz == true)
+            {
+                VálaszGomb1.Enabled = false;
+                VálaszGomb1.BackColor= Color.Red;
+                VálaszGomb2.Enabled= false;
+                VálaszGomb2.BackColor= Color.Red;
             }
         }
-
-
     }
 }
