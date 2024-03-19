@@ -135,7 +135,7 @@ namespace HajósTeszt
             VálaszGomb1.BackColor = Color.Gray;
             VálaszGomb2.BackColor = Color.Gray;
             VálaszGomb3.BackColor = Color.Gray;
-
+            
             TalálatSzámNövelő(AktuálisKérdés, AktuálisKérdések[AktuálisKérdés]);
             
             AktuálisKérdés++;
@@ -150,7 +150,10 @@ namespace HajósTeszt
                 Kérdésmegjelenítés(AktuálisKérdések[AktuálisKérdés]);
             }
 
-            
+            VálaszGomb1.Telitalálat = false;
+            VálaszGomb2.Telitalálat = false;
+            VálaszGomb3.Telitalálat = false;
+
         }
 
         void TalálatSzámNövelő(int válaszSzám, Kérdés k)
@@ -186,6 +189,53 @@ namespace HajósTeszt
                 ÖsszesKérdés.RemoveAt(0);
             }
         }
+
+        #region GombKiszolgálók
+        //private void VálaszGomb1_MouseClick(object sender, EventArgs e)
+        //{
+        //    VálaszGomb1.Telitalálat = false;
+        //    VálaszGomb1.BackColor = Color.Red;
+        //    Színezd();
+        //}
+
+        //private void VálaszGomb2_MouseClick(object sender, EventArgs e)
+        //{
+        //    VálaszGomb2.Telitalálat = false;
+        //    VálaszGomb2.BackColor = Color.Red;
+        //    Színezd();
+        //}
+
+        //private void VálaszGomb3_MouseClick(object sender, EventArgs e)
+        //{
+        //    VálaszGomb3.Telitalálat = false;
+        //    VálaszGomb3.BackColor = Color.Red;
+        //    Színezd();
+        //}
+
+        #endregion
+
+        #region Színezős
+        //void Színezd()
+        //{
+        //    if (VálaszGomb1.HelyesVálasz == true)
+        //    {
+        //        VálaszGomb1.BackColor = Color.Green;
+        //        VálaszGomb1.Telitalálat = true;
+        //    }
+        //    if (VálaszGomb2.HelyesVálasz == true)
+        //    {
+        //        VálaszGomb2.BackColor = Color.Green;
+        //        VálaszGomb2.Telitalálat = true;
+        //    }
+        //    if (VálaszGomb3.HelyesVálasz == true)
+        //    {
+        //        VálaszGomb3.BackColor = Color.Green;
+        //        VálaszGomb3.Telitalálat =true;
+        //    }
+
+
+        //}
+        #endregion
 
         #region PluszFüggvény
         //public void GombBeállító()
