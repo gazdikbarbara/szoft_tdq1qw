@@ -17,14 +17,18 @@ namespace HajósTeszt
             VálaszGomb1 = new VálaszGomb();
             VálaszGomb1.Top = 50;
             Controls.Add(VálaszGomb1);
+            VálaszGomb1.Click += VálaszGomb1_MouseClick;
 
             VálaszGomb2 = new VálaszGomb();
             VálaszGomb2.Top = 160;
             Controls.Add(VálaszGomb2);
+            VálaszGomb2.Click += VálaszGomb2_MouseClick;
 
             VálaszGomb3 = new VálaszGomb();
             VálaszGomb3.Top = 270;
             Controls.Add(VálaszGomb3);
+            VálaszGomb3.Click += VálaszGomb3_MouseClick;
+
         }
 
         
@@ -191,50 +195,50 @@ namespace HajósTeszt
         }
 
         #region GombKiszolgálók
-        //private void VálaszGomb1_MouseClick(object sender, EventArgs e)
-        //{
-        //    VálaszGomb1.Telitalálat = false;
-        //    VálaszGomb1.BackColor = Color.Red;
-        //    Színezd();
-        //}
+        private void VálaszGomb1_MouseClick(object? sender, EventArgs e)
+        {
+            VálaszGomb1.Telitalálat = false;
+            VálaszGomb1.BackColor = Color.Red;
+            Színezd();
+        }
 
-        //private void VálaszGomb2_MouseClick(object sender, EventArgs e)
-        //{
-        //    VálaszGomb2.Telitalálat = false;
-        //    VálaszGomb2.BackColor = Color.Red;
-        //    Színezd();
-        //}
+        private void VálaszGomb2_MouseClick(object? sender, EventArgs e)
+        {
+            VálaszGomb2.Telitalálat = false;
+            VálaszGomb2.BackColor = Color.Red;
+            Színezd();
+        }
 
-        //private void VálaszGomb3_MouseClick(object sender, EventArgs e)
-        //{
-        //    VálaszGomb3.Telitalálat = false;
-        //    VálaszGomb3.BackColor = Color.Red;
-        //    Színezd();
-        //}
+        private void VálaszGomb3_MouseClick(object? sender, EventArgs e)
+        {
+            VálaszGomb3.Telitalálat = false;
+            VálaszGomb3.BackColor = Color.Red;
+            Színezd();
+        }
 
         #endregion
 
         #region Színezős
-        //void Színezd()
-        //{
-        //    if (VálaszGomb1.HelyesVálasz == true)
-        //    {
-        //        VálaszGomb1.BackColor = Color.Green;
-        //        VálaszGomb1.Telitalálat = true;
-        //    }
-        //    if (VálaszGomb2.HelyesVálasz == true)
-        //    {
-        //        VálaszGomb2.BackColor = Color.Green;
-        //        VálaszGomb2.Telitalálat = true;
-        //    }
-        //    if (VálaszGomb3.HelyesVálasz == true)
-        //    {
-        //        VálaszGomb3.BackColor = Color.Green;
-        //        VálaszGomb3.Telitalálat =true;
-        //    }
+        void Színezd()
+        {
+            if (VálaszGomb1.HelyesVálasz == true)
+            {
+                VálaszGomb1.BackColor = Color.Green;
+                VálaszGomb1.Telitalálat = true;
+            }
+            if (VálaszGomb2.HelyesVálasz == true)
+            {
+                VálaszGomb2.BackColor = Color.Green;
+                VálaszGomb2.Telitalálat = true;
+            }
+            if (VálaszGomb3.HelyesVálasz == true)
+            {
+                VálaszGomb3.BackColor = Color.Green;
+                VálaszGomb3.Telitalálat = true;
+            }
 
 
-        //}
+        }
         #endregion
 
         #region PluszFüggvény

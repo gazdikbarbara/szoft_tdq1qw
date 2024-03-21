@@ -20,27 +20,27 @@ namespace HajósTeszt
             Multiline = true;
             Height = 100;
             Width = 300;
-            MouseClick += VálaszGomb_MouseClick;
+            //MouseClick += VálaszGomb_MouseClick;
         }
 
-        private void VálaszGomb_MouseClick(object? sender, MouseEventArgs e)
-        {
-            Telitalálat = false;
-            BackColor = Color.Red;
-            Színezd();
+        //private void VálaszGomb_MouseClick(object? sender, MouseEventArgs e)
+        //{
+        //    Telitalálat = false;
+        //    BackColor = Color.Red;
+        //    Színezd();
 
-        }
+        //}
 
-        void Színezd()
-        {
-            if (HelyesVálasz == true)
-            {
-                BackColor = Color.Green;
-                Telitalálat = true;
-            }
+        //void Színezd()
+        //{
+        //    if (HelyesVálasz == true)
+        //    {
+        //        BackColor = Color.Green;
+        //        Telitalálat = true;
+        //    }
 
 
-        }
+        //}
 
 
 
