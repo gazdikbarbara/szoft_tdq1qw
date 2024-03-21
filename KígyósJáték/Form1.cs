@@ -50,7 +50,7 @@ namespace KígyósJáték
             lépésszám++;
             fej_x += irány_x * KígyóElem.Méret;
             fej_y += irány_y * KígyóElem.Méret;
-            timer1.Enabled = false;
+            
 
             foreach (object item in Controls)
             {
