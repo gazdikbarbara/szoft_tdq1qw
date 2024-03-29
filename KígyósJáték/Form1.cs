@@ -20,6 +20,9 @@ namespace KígyósJáték
 
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
         {
+
+
+
             if (e.KeyCode == Keys.Up)
             {
                 irány_y = -1;
@@ -43,6 +46,8 @@ namespace KígyósJáték
                 irány_y = 0;
                 irány_x = 1;
             }
+
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -50,7 +55,7 @@ namespace KígyósJáték
             lépésszám++;
             fej_x += irány_x * KígyóElem.Méret;
             fej_y += irány_y * KígyóElem.Méret;
-            
+
 
             foreach (object item in Controls)
             {
@@ -62,7 +67,7 @@ namespace KígyósJáték
                         timer1.Enabled = false;
                         return;
                     }
-                } 
+                }
             }
 
             KígyóElem ke = new KígyóElem();
@@ -79,7 +84,8 @@ namespace KígyósJáték
                 Controls.Remove(levágandó);
             }
 
-            
+
+
         }
     }
 }

@@ -9,16 +9,17 @@ namespace KígyósJáték
     internal class Méreg : Button
     {
         Random rnd = new Random();
-        int helyTop;
-        int helyLeft;
+        int helyTop = 50;
+        int helyLeft = 20;
+        int randomSzam;
 
         public Méreg()
         {
-            int randomSzam = rnd.Next(1,11);
+            randomSzam = rnd.Next(1,21);
             Height = 20;
             Width = 20;
-            Top = randomSzam * 20;
-            Left = randomSzam * 20;
+            Top = helyTop * randomSzam;
+            Left = helyLeft * randomSzam;
             BackColor = Color.Black;
         }
     }
