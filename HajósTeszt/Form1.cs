@@ -241,31 +241,6 @@ namespace HajósTeszt
         }
         #endregion
 
-        #region PluszFüggvény
-        //public void GombBeállító()
-        //{
-        //    if (VálaszGomb1.HelyesVálasz == true)
-        //    {
-        //        VálaszGomb2.Enabled = false;
-        //        VálaszGomb2.BackColor = Color.Red;
-        //        VálaszGomb3.Enabled = false;
-        //        VálaszGomb3.BackColor = Color.Red;
-        //    }
-        //    if (VálaszGomb2.HelyesVálasz == true)
-        //    {
-        //        VálaszGomb1.Enabled = false;
-        //        VálaszGomb1.BackColor = Color.Red;
-        //        VálaszGomb3.Enabled = false;
-        //        VálaszGomb3.BackColor = Color.Red;
-        //    }
-        //    if (VálaszGomb3.HelyesVálasz == true)
-        //    {
-        //        VálaszGomb1.Enabled = false;
-        //        VálaszGomb1.BackColor = Color.Red;
-        //        VálaszGomb2.Enabled = false;
-        //        VálaszGomb2.BackColor = Color.Red;
-        //    }
-        //}
-        #endregion
+       
     }
 }
