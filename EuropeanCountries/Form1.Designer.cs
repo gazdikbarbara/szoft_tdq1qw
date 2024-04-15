@@ -48,29 +48,37 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, populationDataGridViewTextBoxColumn, areaInSquareKmDataGridViewTextBoxColumn });
             dataGridView1.DataSource = countryDataBindingSource;
-            dataGridView1.Location = new Point(12, 60);
+            dataGridView1.Location = new Point(14, 80);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(776, 339);
+            dataGridView1.Size = new Size(887, 452);
             dataGridView1.TabIndex = 0;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 125;
             // 
             // populationDataGridViewTextBoxColumn
             // 
             populationDataGridViewTextBoxColumn.DataPropertyName = "Population";
             populationDataGridViewTextBoxColumn.HeaderText = "Population";
+            populationDataGridViewTextBoxColumn.MinimumWidth = 6;
             populationDataGridViewTextBoxColumn.Name = "populationDataGridViewTextBoxColumn";
+            populationDataGridViewTextBoxColumn.Width = 125;
             // 
             // areaInSquareKmDataGridViewTextBoxColumn
             // 
             areaInSquareKmDataGridViewTextBoxColumn.DataPropertyName = "AreaInSquareKm";
             areaInSquareKmDataGridViewTextBoxColumn.HeaderText = "AreaInSquareKm";
+            areaInSquareKmDataGridViewTextBoxColumn.MinimumWidth = 6;
             areaInSquareKmDataGridViewTextBoxColumn.Name = "areaInSquareKmDataGridViewTextBoxColumn";
+            areaInSquareKmDataGridViewTextBoxColumn.Width = 125;
             // 
             // countryDataBindingSource
             // 
@@ -78,9 +86,10 @@
             // 
             // MegnyitásButton
             // 
-            MegnyitásButton.Location = new Point(683, 12);
+            MegnyitásButton.Location = new Point(781, 16);
+            MegnyitásButton.Margin = new Padding(3, 4, 3, 4);
             MegnyitásButton.Name = "MegnyitásButton";
-            MegnyitásButton.Size = new Size(105, 38);
+            MegnyitásButton.Size = new Size(120, 51);
             MegnyitásButton.TabIndex = 1;
             MegnyitásButton.Text = "Megnyitás";
             MegnyitásButton.UseVisualStyleBackColor = true;
@@ -88,9 +97,10 @@
             // 
             // SzerkesztésButton
             // 
-            SzerkesztésButton.Location = new Point(713, 411);
+            SzerkesztésButton.Location = new Point(789, 548);
+            SzerkesztésButton.Margin = new Padding(3, 4, 3, 4);
             SzerkesztésButton.Name = "SzerkesztésButton";
-            SzerkesztésButton.Size = new Size(75, 23);
+            SzerkesztésButton.Size = new Size(112, 31);
             SzerkesztésButton.TabIndex = 2;
             SzerkesztésButton.Text = "Szerkesztés";
             SzerkesztésButton.UseVisualStyleBackColor = true;
@@ -98,9 +108,10 @@
             // 
             // TörlésButton
             // 
-            TörlésButton.Location = new Point(632, 411);
+            TörlésButton.Location = new Point(670, 548);
+            TörlésButton.Margin = new Padding(3, 4, 3, 4);
             TörlésButton.Name = "TörlésButton";
-            TörlésButton.Size = new Size(75, 23);
+            TörlésButton.Size = new Size(113, 31);
             TörlésButton.TabIndex = 3;
             TörlésButton.Text = "Törlés";
             TörlésButton.UseVisualStyleBackColor = true;
@@ -108,9 +119,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 415);
+            button1.Location = new Point(14, 553);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(86, 31);
             button1.TabIndex = 4;
             button1.Text = "Mentés";
             button1.UseVisualStyleBackColor = true;
@@ -118,14 +130,15 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(button1);
             Controls.Add(TörlésButton);
             Controls.Add(SzerkesztésButton);
             Controls.Add(MegnyitásButton);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
